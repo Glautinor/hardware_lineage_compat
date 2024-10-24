@@ -396,6 +396,24 @@ cc_prebuilt_library_shared {
     check_elf_files: false,
 }
 
+cc_prebuilt_library_shared {
+    name: "libutils-v32",
+    vendor_available: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["vndk/v32/arm/libutils-v32.so"],
+        },
+        android_arm64: {
+            srcs: ["vndk/v32/arm64/libutils-v32.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
 cc_library {
     name: "libhidlbase_shim",
     srcs: ["libhidlbase/gBnsConstructorMap.cpp"],
